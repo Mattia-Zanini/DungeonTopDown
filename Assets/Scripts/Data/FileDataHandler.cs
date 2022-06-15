@@ -20,6 +20,7 @@ public class FileDataHandler
     public GameData Load()
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
+        Debug.Log($"Searching data file in: {fullPath}");
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
