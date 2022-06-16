@@ -7,9 +7,9 @@ public class PlayerAttack : MonoBehaviour
 {
     public PlayerInputActions playerControls;
     private InputAction attack;
-    private float angle;
 
     private GameObject attackArea = default;
+    private GameData playerData;
     private bool attaccking = false;
     private float timeToAttack = 0.25f;
     private float timer = 0f;
@@ -19,21 +19,13 @@ public class PlayerAttack : MonoBehaviour
     {
         attackArea = transform.GetChild(0).GetChild(0).gameObject;
         attackArea.SetActive(attaccking);
+        playerData = gameObject.GetComponent<PlayerData>().playerData;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (attaccking)
-        {
-            timer += Time.deltaTime;
-            if (timer >= timeToAttack)
-            {
-                timer = 0f;
-                attaccking = false;
-                attackArea.SetActive(attaccking);
-            }
-        }
+        SwordAttack(PlayerHaveSword());
     }
     private void Awake()
     {
@@ -54,9 +46,23 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!attaccking)
         {
-            Debug.Log("Attack");
             attaccking = true;
-            attackArea.SetActive(attaccking);
+            if(PlayerHaveSword())
+                attackArea.SetActive(attaccking);
         }
     }
+    private void SwordAttack(bool haveSword)
+    {
+        if (attaccking && haveSword)
+        {
+            timer += Time.deltaTime;
+            if (timer >= timeToAttack)
+            {
+                timer = 0f;
+                attaccking = false;
+                attackArea.SetActive(attaccking);
+            }
+        }
+    }
+    private bool PlayerHaveSword() => playerData.weapons[playerData.selectedWeapon].isMelee;
 }

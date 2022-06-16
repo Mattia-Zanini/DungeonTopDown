@@ -7,11 +7,13 @@ public class PlayerAimWeapon : MonoBehaviour
 {
     private Transform aimTransform;
     private SpriteRenderer spriteRenderer;
+    private GameObject weapon;
     private float angle;
     private void Awake()
     {
         aimTransform = transform.Find("Aim");
         spriteRenderer = GetComponent<SpriteRenderer>();
+        weapon = transform.GetChild(0).GetChild(1).gameObject;
     }
 
     // Update is called once per frame
@@ -30,11 +32,34 @@ public class PlayerAimWeapon : MonoBehaviour
     }
     private void UpdatePlayerDirection(float angle)
     {
-        if (angle >= -90 && angle <= 90) //player to the right
+        //player to the right
+        if (angle >= -90 && angle <= 90)
+        {
             spriteRenderer.flipX = false;
-        else //player to the left
+            //FlipSword(false);
+        }
+        //player to the left
+        else
+        {
             spriteRenderer.flipX = true;
+            //FlipSword(true);
+        }
     }
+    /*private void FlipSword(bool toLeft)
+    {
+        Transform wpT = weapon.GetComponent<Transform>();
+        SpriteRenderer wpR = weapon.GetComponent<SpriteRenderer>();
+        if (toLeft)
+        {
+            wpR.flipY = true;
+            wpT.transform.rotation = Quaternion.Euler(0, 0, 42.51f);
+        }
+        if (!toLeft)
+        {
+            wpR.flipY = false;
+            wpT.transform.rotation = Quaternion.Euler(0, 0, -42.51f);
+        }
+    }*/
 
 
 

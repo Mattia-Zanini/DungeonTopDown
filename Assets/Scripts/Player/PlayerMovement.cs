@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour, IDataManager
+public class PlayerMovement : MonoBehaviour
 {
+    public GameData pD;
     private Rigidbody2D rb;
     private Animator animator;
     Vector2 movement;
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour, IDataManager
     private void Awake()
     {
         playerControls = new PlayerInputActions();
+        pD = GetComponent<PlayerData>().playerData;
     }
 
     void OnEnable()
@@ -46,15 +48,6 @@ public class PlayerMovement : MonoBehaviour, IDataManager
     void OnDisable()
     {
         move.Disable();
-    }
-
-    public void LoadData(GameData data)
-    {
-        this.transform.position = data.playerPosition;
-    }
-    public void SaveData(ref GameData data)
-    {
-        data.playerPosition = this.transform.position;
     }
     private void Movement() => rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     private void UpdateAnimation()
