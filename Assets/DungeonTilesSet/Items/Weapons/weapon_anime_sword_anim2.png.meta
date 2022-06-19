@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 883cfc56feb73184e85352bfafa9dc8b
+guid: 2fe7bb8cc0e7ac043b04b27ef1cb6e1d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: weapon_red_gem_sword_anim_0
+      name: weapon_anime_sword_anim2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
-        height: 25
+        width: 30
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9053b29e890c03b40a5449ea50d78b11
-      internalID: 1359557904
+      spriteID: 2b93160121ce56a4b810cff0bea19c80
+      internalID: 894007932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weapon_red_gem_sword_anim_1
+      name: weapon_anime_sword_anim2_1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 30
         y: 0
-        width: 20
-        height: 25
+        width: 30
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,41 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c46349e126e17c34c985d82ef8f59adf
-      internalID: -1505133699
+      spriteID: 1c3ded1c36745ca4480e5e7e3e7d3793
+      internalID: -318096823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weapon_red_gem_sword_anim_2
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4dee42a7ba4ab19409623b6f9ddd2515
-      internalID: 2116284494
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: weapon_red_gem_sword_anim_3
+      name: weapon_anime_sword_anim2_2
       rect:
         serializedVersion: 2
         x: 60
         y: 0
-        width: 20
-        height: 25
+        width: 30
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d7f7ba9c7eeae34e88b27b337fde350
-      internalID: -865314473
+      spriteID: 4cce4dae661e7f24e8701ec666b990e6
+      internalID: 506672114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weapon_red_gem_sword_anim_4
+      name: weapon_anime_sword_anim2_3
       rect:
         serializedVersion: 2
-        x: 80
+        x: 90
         y: 0
-        width: 20
-        height: 25
+        width: 30
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +181,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df83d1322a121d744ad3e66606f465c7
-      internalID: -1362928577
+      spriteID: c04ac9b4223269d408da7e1e22e43cbe
+      internalID: 1189769932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_anime_sword_anim2_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f782ac0fa92ca5a4d991913355dcb9d5
+      internalID: -1275465219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_anime_sword_anim2_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5f339e16ad63b459699351dafd025e
+      internalID: -1315076860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_anime_sword_anim2_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4da8b9826acc1243af51d0711c0bfb6
+      internalID: 391800682
       vertices: []
       indices: 
       edges: []
@@ -219,11 +261,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      weapon_red_gem_sword_anim_1: -1505133699
-      weapon_red_gem_sword_anim_3: -865314473
-      weapon_red_gem_sword_anim_0: 1359557904
-      weapon_red_gem_sword_anim_2: 2116284494
-      weapon_red_gem_sword_anim_4: -1362928577
+      weapon_anime_sword_anim2_3: 1189769932
+      weapon_anime_sword_anim2_1: -318096823
+      weapon_anime_sword_anim2_4: -1275465219
+      weapon_anime_sword_anim2_2: 506672114
+      weapon_anime_sword_anim2_6: 391800682
+      weapon_anime_sword_anim2_5: -1315076860
+      weapon_anime_sword_anim2_0: 894007932
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

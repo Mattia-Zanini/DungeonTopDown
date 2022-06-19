@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
+    private float damage = 0;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Health>() != null && other.tag == "Enemy")
@@ -13,5 +13,9 @@ public class AttackArea : MonoBehaviour
             Health health = other.GetComponent<Health>();
             health.UpdateHealth(-damage);
         }
+    }
+    private void Awake()
+    {
+        this.damage = transform.parent.parent.GetComponent<PlayerAttack>().playerWeapon.damage;
     }
 }

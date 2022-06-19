@@ -5,15 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GameData pD;
     private Rigidbody2D rb;
     private Animator animator;
+    public PlayerInputActions playerControls;
+    private InputAction move;
     Vector2 movement;
     private enum MovementState { idle, running }
 
     public float moveSpeed = 5f;
-    public PlayerInputActions playerControls;
-    private InputAction move;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerInputActions();
-        pD = GetComponent<PlayerData>().playerData;
     }
 
     void OnEnable()

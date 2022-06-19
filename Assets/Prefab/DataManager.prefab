@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e537e745e2ab1e34aaf8e215b539d0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeDataIfNull: 0
   fileaName: player.txt
   useEncryption: 0
+  saveOnQuit: 1

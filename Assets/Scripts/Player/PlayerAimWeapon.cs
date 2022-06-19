@@ -7,28 +7,33 @@ public class PlayerAimWeapon : MonoBehaviour
 {
     private Transform aimTransform;
     private SpriteRenderer spriteRenderer;
-    private GameObject weapon;
+    private SpriteRenderer weaponRender;
+    public bool followMouse;
     private float angle;
     private void Awake()
     {
         aimTransform = transform.Find("Aim");
         spriteRenderer = GetComponent<SpriteRenderer>();
-        weapon = transform.GetChild(0).GetChild(1).gameObject;
+        weaponRender = transform.GetChild(0).GetChild(1).GetComponent<SpriteRenderer>();
+        followMouse = true;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        HandleAim();
+        HandleAim(followMouse);
         UpdatePlayerDirection(angle);
     }
-    private void HandleAim()
+    private void HandleAim(bool follow)
     {
-        Vector3 mousePosition = GetMouseWorldPosition();
-        Vector3 aimDirection = (mousePosition - transform.position).normalized;
-        angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg; //Mathf.Rad2Deg per convertire da radianti a gradi
-        //Debug.Log(angle);
-        aimTransform.eulerAngles = new Vector3(0, 0, angle);
+        if (follow)
+        {
+            Vector3 mousePosition = GetMouseWorldPosition();
+            Vector3 aimDirection = (mousePosition - transform.position).normalized;
+            angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg; //Mathf.Rad2Deg per convertire da radianti a gradi
+            //Debug.Log(angle);
+            aimTransform.eulerAngles = new Vector3(0, 0, angle);
+        }
     }
     private void UpdatePlayerDirection(float angle)
     {
@@ -36,30 +41,15 @@ public class PlayerAimWeapon : MonoBehaviour
         if (angle >= -90 && angle <= 90)
         {
             spriteRenderer.flipX = false;
-            //FlipSword(false);
+            weaponRender.flipX = false;
         }
         //player to the left
         else
         {
             spriteRenderer.flipX = true;
-            //FlipSword(true);
+            weaponRender.flipX = true;
         }
     }
-    /*private void FlipSword(bool toLeft)
-    {
-        Transform wpT = weapon.GetComponent<Transform>();
-        SpriteRenderer wpR = weapon.GetComponent<SpriteRenderer>();
-        if (toLeft)
-        {
-            wpR.flipY = true;
-            wpT.transform.rotation = Quaternion.Euler(0, 0, 42.51f);
-        }
-        if (!toLeft)
-        {
-            wpR.flipY = false;
-            wpT.transform.rotation = Quaternion.Euler(0, 0, -42.51f);
-        }
-    }*/
 
 
 

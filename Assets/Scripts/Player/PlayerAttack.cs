@@ -7,11 +7,13 @@ public class PlayerAttack : MonoBehaviour
 {
     public PlayerInputActions playerControls;
     private InputAction attack;
-
     private GameObject attackArea = default;
-    private GameData playerData;
+    public Weapon playerWeapon;
+    private Animator swordAnim;
+
     private bool attaccking = false;
-    private float timeToAttack = 0.25f;
+    [SerializeField] private float timeToAttack = 0.5f;
+    [SerializeField] private float attackDuration = 0.2f;
     private float timer = 0f;
 
     // Start is called before the first frame update
@@ -19,17 +21,18 @@ public class PlayerAttack : MonoBehaviour
     {
         attackArea = transform.GetChild(0).GetChild(0).gameObject;
         attackArea.SetActive(attaccking);
-        playerData = gameObject.GetComponent<PlayerData>().playerData;
     }
 
     // Update is called once per frame
     void Update()
     {
-        SwordAttack(PlayerHaveSword());
+        SwordAttack();
     }
     private void Awake()
     {
         playerControls = new PlayerInputActions();
+        GetWeapon();
+        swordAnim = transform.GetChild(0).GetChild(1).GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -47,22 +50,36 @@ public class PlayerAttack : MonoBehaviour
         if (!attaccking)
         {
             attaccking = true;
-            if(PlayerHaveSword())
+            if (PlayerHaveSword())
+            {
                 attackArea.SetActive(attaccking);
+                swordAnim.SetBool("attack", true);
+                GetComponent<PlayerAimWeapon>().followMouse = false;
+            }
         }
     }
-    private void SwordAttack(bool haveSword)
+    private void SwordAttack()
     {
-        if (attaccking && haveSword)
+        if (attaccking && PlayerHaveSword())
         {
             timer += Time.deltaTime;
+            if (timer >= attackDuration)
+            {
+                attackArea.SetActive(false);
+            }
             if (timer >= timeToAttack)
             {
                 timer = 0f;
                 attaccking = false;
-                attackArea.SetActive(attaccking);
+                swordAnim.SetBool("attack", false);
+                GetComponent<PlayerAimWeapon>().followMouse = true;
             }
         }
     }
-    private bool PlayerHaveSword() => playerData.weapons[playerData.selectedWeapon].isMelee;
+    private bool PlayerHaveSword() => playerWeapon.isMelee;
+    private void GetWeapon()
+    {
+        GameData data = gameObject.GetComponent<PlayerData>().playerData;
+        playerWeapon = data.weapons[data.selectedWeapon];
+    }
 }

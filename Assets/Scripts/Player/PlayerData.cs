@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour, IDataManager
 {
     public GameData playerData;
-    private void Start()
+    private void Awake()
     {
         ////experimental
         if (playerData.weapons.Count == 0)
-            playerData.weapons.Add(new Weapon("sword", 0, true, 10));
+            playerData.weapons.Add(new Weapon("Great Sword", 0, true, 25));
     }
     public void LoadData(GameData data)
     {

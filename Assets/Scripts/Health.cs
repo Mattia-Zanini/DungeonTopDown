@@ -13,10 +13,10 @@ public class Health : MonoBehaviour
     {
         health = maxHealth;
     }
-    public void UpdateHealth(float mod)
+    public void UpdateHealth(float healthModifier)
     {
-        health += mod;
-        Debug.Log($"{this.gameObject.name} get {mod} of health");
+        health += healthModifier;
+        Debug.Log($"{this.gameObject.name} get {healthModifier} of health");
         if (health > maxHealth)
         {
             health = maxHealth;

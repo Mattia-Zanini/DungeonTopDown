@@ -11,6 +11,7 @@ public class DataManager : MonoBehaviour
     [Header("File Storage Config")]
     [SerializeField] private string fileaName;
     [SerializeField] private bool useEncryption;
+    [SerializeField] private bool saveOnQuit = true;
     private GameData gameData;
     private List<IDataManager> dataObjects;
     private FileDataHandler dataHandler;
@@ -84,7 +85,8 @@ public class DataManager : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        SaveGame();
+        if(saveOnQuit)
+            SaveGame();
     }
     private List<IDataManager> FindAllData()
     {
